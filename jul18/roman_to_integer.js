@@ -94,7 +94,6 @@ const romanToInt = function (s) {
     }
 
     total += convert[array[i]];
-    console.log(i);
   }
   
   return total;
