@@ -19,7 +19,7 @@ body {
   font-weight: 100;
   letter-spacing: 2px;
   color: snow;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 #clock h3 {
@@ -43,4 +43,53 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#tabs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tabs-inner {
+  width: 620px;
+  margin: 50px;
+  /* background: rgba(123, 104, 238, 0.75); */
+  background: rgb(70, 130, 180, 0.6);
+  border-radius: 7px;
+  border: 1px solid snow;
+}
+
+#tabs ul {
+  display: flex;
+}
+
+#tabs ul li {
+  padding: 10 20;
+  width: 33%;
+  border-right: 1px solid snow;
+  border-bottom: 1px solid snow;
+  color: snow;
+  text-align: center;
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+#tabs ul li:last-child {
+  border-right: none;
+}
+
+#tabs article {
+  color: snow;
+  padding: 20px;
+  letter-spacing: 1px;
+  height: 90px;
+}
+
+.active {
+  font-weight: 700;
+  background: rgb(70, 130, 180, 0.75);
 }

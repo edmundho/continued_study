@@ -63,6 +63,9 @@ class Clock extends React.Component {
     const month = currentTime.getMonth();
     const date = currentTime.getDate();
     let hours = currentTime.getHours();
+    if (hours > 12) {
+      hours = hours - 12;
+    }
     hours = hours < 10 ? `0${hours}` : hours;
     let minutes = currentTime.getMinutes();
     minutes = minutes < 10 ? `0${minutes}` : minutes;
