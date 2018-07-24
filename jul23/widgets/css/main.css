@@ -1,0 +1,44 @@
+
+body {
+  background: steelblue;
+}
+
+#clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: lightsteelblue; */
+  flex-direction: column;
+}
+
+#clock h1 {
+  margin: 25px;
+  font-family: Georgia;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: snow;
+  font-size: 30px;
+}
+
+#clock h3 {
+  text-align: right;
+  color: midnightblue;
+  font-size: 100px;
+  font-family: Helvetica Neue;
+  font-weight: 100;
+  letter-spacing: 29px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px snow solid;
+  border-top: 1px snow solid;
+  padding: 15px;
+}
+
+#clock h3 > p {
+  margin: 15px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
