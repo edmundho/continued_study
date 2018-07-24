@@ -54,8 +54,7 @@ body {
 
 #tabs-inner {
   width: 620px;
-  margin: 50px;
-  /* background: rgba(123, 104, 238, 0.75); */
+  margin: 25px;
   background: rgb(70, 130, 180, 0.6);
   border-radius: 7px;
   border: 1px solid snow;
@@ -92,4 +91,35 @@ body {
 .active {
   font-weight: 700;
   background: rgb(70, 130, 180, 0.75);
+}
+
+#weather {
+  display: flex;
+  justify-content: center;
+
+}
+
+#weather-inner {
+  width: 620px;
+  height: 75px;
+  margin: 25px;
+  background: rgb(70, 130, 180, 0.6);
+  border-radius: 7px;
+  border: 1px solid snow;
+  color: snow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+#weather-inner > div {
+  display: flex;
+}
+
+#weather-inner p {
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 300;
 }

@@ -29,8 +29,8 @@ const Root = () => {
   return (
     <div>
       <Clock />
-      <Tabs content={contentArray} />
       <Weather />
+      <Tabs content={contentArray} />
     </div>
   );
 };
