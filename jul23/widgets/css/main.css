@@ -1,19 +1,21 @@
 
 body {
   background: steelblue;
+  background-image: url("../images/beach.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 #clock {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: lightsteelblue; */
   flex-direction: column;
 }
 
 #clock h1 {
   margin: 25px;
-  font-family: Georgia;
+  font-family: 'Cormorant Unicase', serif;
   font-weight: 100;
   letter-spacing: 2px;
   color: snow;
@@ -22,9 +24,9 @@ body {
 
 #clock h3 {
   text-align: right;
-  color: midnightblue;
-  font-size: 100px;
+  color: snow;
   font-family: Helvetica Neue;
+  font-size: 100px;
   font-weight: 100;
   letter-spacing: 29px;
   margin: 15px;
