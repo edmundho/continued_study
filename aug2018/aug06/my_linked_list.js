@@ -15,7 +15,7 @@ MyLinkedList.prototype.get = function (index) {
 
   let current = this.head;
 
-  if (index > this.length) return -1;
+  if (index >= this.length) return -1;
 
   let i = 0;
   while (i < this.length) {
@@ -164,3 +164,6 @@ ll2.addAtIndex(0, 1); // List is now 1
 ll2.get(0);  // returns 1
 ll2.get(1); // returns null
 console.log(ll2);
+
+// ["MyLinkedList","addAtHead","addAtTail","addAtHead","addAtTail","addAtIndex","get","addAtTail","addAtTail","addAtHead","addAtTail","addAtHead","addAtHead","get","deleteAtIndex","addAtTail","addAtIndex","get","addAtHead","addAtHead","addAtTail","addAtHead","addAtIndex","deleteAtIndex","get","addAtTail","addAtTail","addAtHead","addAtIndex","deleteAtIndex","get","addAtHead","deleteAtIndex","addAtTail","addAtHead","addAtTail","addAtTail","addAtTail","get","addAtHead","deleteAtIndex","addAtHead","deleteAtIndex","addAtHead","addAtHead","addAtHead","get","addAtIndex","addAtIndex","addAtTail","addAtTail","addAtTail","addAtHead","addAtHead","addAtHead","addAtTail","addAtIndex","addAtTail","addAtTail","get","addAtTail","addAtTail","addAtTail","addAtTail","addAtIndex","addAtIndex","get","get","addAtTail","addAtHead","addAtTail","deleteAtIndex","addAtIndex","get","addAtHead","addAtHead","get","get","deleteAtIndex","addAtHead","addAtIndex","addAtIndex","addAtIndex","get","deleteAtIndex","addAtIndex","addAtTail","addAtIndex","get","addAtTail","deleteAtIndex","addAtHead","addAtTail","addAtTail","addAtTail","addAtTail","get","deleteAtIndex","addAtIndex","addAtIndex","addAtTail","addAtHead"]
+// [[], [22], [46], [68], [12], [3, 62], [3], [10], [17], [54], [43], [83], [0], [11], [7], [8], [3, 10], [3], [9], [46], [63], [64], [1, 81], [10], [2], [36], [71], [38], [5, 82], [4], [19], [37], [2], [0], [83], [99], [77], [20], [18], [38], [5], [64], [21], [41], [75], [66], [12], [15, 90], [14, 3], [80], [4], [69], [26], [63], [14], [6], [10, 33], [84], [45], [5], [1], [64], [22], [64], [6, 74], [36, 49], [27], [39], [83], [11], [79], [40], [20, 42], [16], [55], [9], [21], [42], [23], [89], [44, 19], [19, 53], [27, 55], [16], [50], [25, 61], [11], [8, 25], [12], [88], [12], [28], [1], [76], [62], [98], [2], [20], [51, 52], [4, 81], [79], [9]]
