@@ -10,23 +10,36 @@
 // Input: "cbbd"
 // Output: "bb"
 
-var longestPalindrome = function (s) {
-  const array = s.split("");
-  let result = "";
+// let [maxLen, lo] = [0, 0];
+let maxLen = 0;
+let lo = 0;
 
-  for (let i = 0; i < array.length; i++) {
-    for (let j = i + 1; j < array.length + 1; j++) {
-      let word = array.slice(i, j);
-      let reversed = word.reverse();
-      if (word.join('') === reversed.join('') && word.length > result.length) {
-        result = word.join('');
-      }
-    }
+var longestPalindrome = function (s) {
+  if (s.length < 2) return s;
+  
+  for (let i = 0; i < s.length - 1; i++) {
+    extendPalindrome(s, i, i);
+    extendPalindrome(s, i, i + 1);
   }
 
-  return result;
+  return s.substring(lo, lo + maxLen);
 };
 
-console.log(longestPalindrome('babad'));
-console.log(longestPalindrome('cbbd'));
-console.log(longestPalindrome('racecar'));
+var extendPalindrome = function (s, j, k) {
+  while (j >= 0 && k < s.length && s.charAt(j) === s.charAt(k)) {
+    j--;
+    k++;
+  }
+
+  if (maxLen < k - j - 1) {
+    lo = j + 1;
+    maxLen = k - j - 1;
+  }
+};
+
+// console.log(longestPalindrome('babad'));
+// console.log(longestPalindrome('cbbd'));
+console.log(longestPalindrome('cbbbd'));
+// console.log(longestPalindrome('cbbbbd'));
+// console.log(longestPalindrome('cbbbbbd'));
+// console.log(longestPalindrome('racecar'));
