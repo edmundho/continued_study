@@ -46,6 +46,8 @@ var frequencySort = function (s) {
     }
   }
 
+  
+
   return letterCounts;
 };
 
