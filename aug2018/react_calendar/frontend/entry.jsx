@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MonthName from './month_name';
+import { Weekdays } from './weekdays';
 
 function Root() {
 	return (
 		<div>
 			<MonthName />
+			<Weekdays />
 		</div>
 	);
 }
