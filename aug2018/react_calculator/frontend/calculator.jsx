@@ -5,22 +5,98 @@ class Calculator extends React.Component {
     super(props);
     
     this.state = {
-      result: 0,
-      num1: '',
-      num2: ''
+      result: '0',
+      display: '0',
+      newNumber: false,
     };
+
+    this.plus = this.plus.bind(this);
+    this.minus = this.minus.bind(this);
+    this.times = this.times.bind(this);
+    this.clearCalc = this.clearCalc.bind(this);
   }
 
+  setNum (n) {
+    if (this.state.display === '0') {
+      this.setState({
+        display: n,
+      });
+    } else if (this.state.newNumber) {
+        this.setState({
+          display: n,
+          newNumber: false,
+        });
+    } else {
+      this.setState({
+        display: this.state.display += n
+      });
+    }
+  }
 
+  plus () {
+    if (!this.state.newNumber) {
+      const sum = parseInt(this.state.result) + parseInt(this.state.display);
+  
+      this.setState({
+        result: sum.toString(),
+        display: sum.toString(),
+        newNumber: true,
+      });
+    }
+  }
+
+  minus () {
+    if (!this.state.newNumber) {
+      const diff = parseInt(this.state.result) - parseInt(this.state.display);
+
+      this.setState({
+        result: diff.toString(),
+        display: diff.toString(),
+        newNumber: true,
+      });
+    }
+  }
+
+  times () {
+    if (!this.state.newNumber) {
+      const prod = parseInt(this.state.result) * parseInt(this.state.display);
+
+      this.setState({
+        result: prod.toString(),
+        display: prod.toString(),
+        newNumber: true
+      });
+    }
+  }
+  
+  clearCalc () {
+    this.setState({
+      result: '0',
+      display: '0',
+      newNumber: false,
+    });
+  }
 
   render () {
-    return (
-      <div>
-        <h1>
-          {this.state.result}
-        </h1>
-      </div>
-    );
+    return <div>
+        <h1>{this.state.display}</h1>
+        <button onClick={this.plus}>+</button>
+        <button onClick={this.minus}>-</button>
+        <button onClick={this.times}>*</button>
+        <button onClick={this.divideBy}>/</button>
+        <button onClick={this.equals}>=</button>
+        <button onClick={this.clearCalc}>C</button>
+        <button onClick={() => this.setNum('1')} >1</button>
+        <button onClick={() => this.setNum('2')} >2</button>
+        <button onClick={() => this.setNum('3')} >3</button>
+        <button onClick={() => this.setNum('4')} >4</button>
+        <button onClick={() => this.setNum('5')} >5</button>
+        <button onClick={() => this.setNum('6')} >6</button>
+        <button onClick={() => this.setNum('7')} >7</button>
+        <button onClick={() => this.setNum('8')} >8</button>
+        <button onClick={() => this.setNum('9')} >9</button>
+        <button onClick={() => this.setNum('0')} >0</button>
+      </div>;
   }
 }
 
