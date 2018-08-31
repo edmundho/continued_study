@@ -27,7 +27,7 @@ class Calculator extends React.Component {
         });
     } else {
       this.setState({
-        display: this.state.display += n
+        display: this.state.display += n,
       });
     }
   }
@@ -52,7 +52,7 @@ class Calculator extends React.Component {
   }
 
   minus () {
-    if (!this.state.newNumber) {
+    if (this.state.operator.length > 0) {
       const diff = parseInt(this.state.result) - parseInt(this.state.display);
 
       this.setState({
@@ -61,7 +61,15 @@ class Calculator extends React.Component {
         newNumber: true,
         operator: '-',
       });
+    } else {
+      this.setState({
+        result: this.state.display,
+        // display: diff.toString(),
+        newNumber: true,
+        operator: '-',
+      });
     }
+
   }
 
   times () {
@@ -81,13 +89,23 @@ class Calculator extends React.Component {
       case '+':
         const sum = parseInt(this.state.result) + parseInt(this.state.display);
         this.setState({
-          result: sum,
-          display: sum,
+          result: sum.toString(),
+          display: sum.toString(),
           equaled: true,
-          operator: ''
+          operator: '',
+          newNumber: true,
         });
         break;
       case '-':
+        const diff = parseInt(this.state.result) - parseInt(this.state.display);
+
+        this.setState({
+          result: diff.toString(),
+          display: diff.toString(),
+          equaled: true,
+          operator: '',
+          newNumber: true
+        });
         break;
       case '*':
         break;
@@ -101,11 +119,14 @@ class Calculator extends React.Component {
       result: '0',
       display: '0',
       newNumber: false,
+      equaled: false,
+      operator: '',
     });
   }
 
   render () {
-    return <div>
+    return (
+      <div>
         <h1>{this.state.display}</h1>
         <button onClick={this.plus}>+</button>
         <button onClick={this.minus}>-</button>
@@ -123,7 +144,8 @@ class Calculator extends React.Component {
         <button onClick={() => this.setNum('8')} >8</button>
         <button onClick={() => this.setNum('9')} >9</button>
         <button onClick={() => this.setNum('0')} >0</button>
-      </div>;
+      </div>
+    );
   }
 }
 
