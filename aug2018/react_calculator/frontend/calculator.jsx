@@ -8,20 +8,19 @@ class Calculator extends React.Component {
       result: '0',
       display: '0',
       newNumber: false,
+      operator: '',
+      equaled: false,
     };
 
     this.plus = this.plus.bind(this);
     this.minus = this.minus.bind(this);
     this.times = this.times.bind(this);
+    this.equals = this.equals.bind(this);
     this.clearCalc = this.clearCalc.bind(this);
   }
 
   setNum (n) {
-    if (this.state.display === '0') {
-      this.setState({
-        display: n,
-      });
-    } else if (this.state.newNumber) {
+    if (this.state.newNumber || this.state.display === '0') {
         this.setState({
           display: n,
           newNumber: false,
@@ -34,13 +33,20 @@ class Calculator extends React.Component {
   }
 
   plus () {
-    if (!this.state.newNumber) {
+    if (this.state.equaled) {
+      this.setState({
+        operator: '+',
+        newNumber: true,
+        equaled: false,
+      });
+    } else if (!this.state.newNumber) {
       const sum = parseInt(this.state.result) + parseInt(this.state.display);
   
       this.setState({
         result: sum.toString(),
         display: sum.toString(),
         newNumber: true,
+        operator: '+'
       });
     }
   }
@@ -53,6 +59,7 @@ class Calculator extends React.Component {
         result: diff.toString(),
         display: diff.toString(),
         newNumber: true,
+        operator: '-',
       });
     }
   }
@@ -66,6 +73,26 @@ class Calculator extends React.Component {
         display: prod.toString(),
         newNumber: true
       });
+    }
+  }
+  
+  equals () {
+    switch (this.state.operator) {
+      case '+':
+        const sum = parseInt(this.state.result) + parseInt(this.state.display);
+        this.setState({
+          result: sum,
+          display: sum,
+          equaled: true,
+          operator: ''
+        });
+        break;
+      case '-':
+        break;
+      case '*':
+        break;
+      case '/':
+        break;
     }
   }
   
