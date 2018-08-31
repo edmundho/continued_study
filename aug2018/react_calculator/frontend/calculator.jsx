@@ -40,7 +40,7 @@ class Calculator extends React.Component {
         equaled: false,
       });
     } else if (!this.state.newNumber) {
-      const sum = parseInt(this.state.result) + parseInt(this.state.display);
+      const sum = parseFloat(this.state.result) + parseFloat(this.state.display);
   
       this.setState({
         result: sum.toString(),
@@ -53,7 +53,7 @@ class Calculator extends React.Component {
 
   minus () {
     if (this.state.operator.length > 0) {
-      const diff = parseInt(this.state.result) - parseInt(this.state.display);
+      const diff = parseFloat(this.state.result) - parseFloat(this.state.display);
 
       this.setState({
         result: diff.toString(),
@@ -64,22 +64,27 @@ class Calculator extends React.Component {
     } else {
       this.setState({
         result: this.state.display,
-        // display: diff.toString(),
         newNumber: true,
         operator: '-',
       });
     }
-
   }
 
   times () {
-    if (!this.state.newNumber) {
-      const prod = parseInt(this.state.result) * parseInt(this.state.display);
+    if (this.state.operator.length > 0) {
+      const prod = parseFloat(this.state.result) * parseFloat(this.state.display);
 
       this.setState({
         result: prod.toString(),
         display: prod.toString(),
-        newNumber: true
+        newNumber: true,
+        operator: "*"
+      });
+    } else {
+      this.setState({
+        result: this.state.display,
+        newNumber: true,
+        operator: "*"
       });
     }
   }
@@ -87,7 +92,7 @@ class Calculator extends React.Component {
   equals () {
     switch (this.state.operator) {
       case '+':
-        const sum = parseInt(this.state.result) + parseInt(this.state.display);
+        const sum = parseFloat(this.state.result) + parseFloat(this.state.display);
         this.setState({
           result: sum.toString(),
           display: sum.toString(),
@@ -97,7 +102,7 @@ class Calculator extends React.Component {
         });
         break;
       case '-':
-        const diff = parseInt(this.state.result) - parseInt(this.state.display);
+        const diff = parseFloat(this.state.result) - parseFloat(this.state.display);
 
         this.setState({
           result: diff.toString(),
@@ -108,6 +113,15 @@ class Calculator extends React.Component {
         });
         break;
       case '*':
+        const prod = parseFloat(this.state.result) * parseFloat(this.state.display);
+
+        this.setState({
+          result: prod.toString(),
+          display: prod.toString(),
+          newNumber: true,
+          equaled: true,
+          operator: '',
+        });
         break;
       case '/':
         break;
@@ -144,6 +158,7 @@ class Calculator extends React.Component {
         <button onClick={() => this.setNum('8')} >8</button>
         <button onClick={() => this.setNum('9')} >9</button>
         <button onClick={() => this.setNum('0')} >0</button>
+        <button onClick={() => this.setNum('.')} >.</button>
       </div>
     );
   }
