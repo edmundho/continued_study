@@ -1,4 +1,5 @@
 require 'set'
+require_relative 'player'
 
 class Game
   ALPHABET = Set.new("a".."z")
@@ -62,7 +63,7 @@ class Game
     players.rotate! until losses[current_player] < MAX_LOSS_COUNT
   end
   
-  def valid_play?(string)
+  def valid_play?(letter)
     return false unless ALPHABET.include?(letter)
     
     potential_fragment = fragment + letter
@@ -91,7 +92,7 @@ class Game
     display_standings
   end
   
-  def take_turn(player)
+  def take_turn
     system('clear')
     puts "It's #{current_player}'s turn!"
     letter = nil
