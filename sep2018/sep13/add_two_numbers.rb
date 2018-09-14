@@ -24,7 +24,6 @@ def add_two_numbers(l1, l2)
     sum = (r1 + r2).to_s.reverse
     
     newList = nil
-    current = newList
     
     i = 0
     while i < sum.length
