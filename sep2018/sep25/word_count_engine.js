@@ -1,4 +1,3 @@
-
 function wordCountEngine(document) {
   let result = [];
 
@@ -55,5 +54,5 @@ function wordCountEngine(document) {
   return result;
 }
 
-document = "Practice makes perfect. you'll only get Perfect by practice. just practice!";
+const document = "Practice makes perfect. you'll only get Perfect by practice. just practice!";
 //console.log(wordCountEngine(document));
