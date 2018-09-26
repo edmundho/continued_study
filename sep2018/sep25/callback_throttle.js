@@ -73,10 +73,10 @@ function throttle(wait, onLast, onFirst, interval, timestamps) {
   return result;
 }
 
-console.log(throttle(20, false, true, 0, [0, 10, 20, 30])); // [0] -
-console.log(throttle(20, true, false, 0, [0, 10, 20, 30])); // [50] -
-console.log(throttle(20, false, true, 20, [0, 10, 20, 30])); // )[0, 20] -
-console.log(throttle(20, false, true, 0, [0, 10, 40])); // [0, 40] -
-console.log(throttle(20, true, false, 0, [0, 10, 40])); // [30, 60] -
-console.log(throttle(20, true, true, 0, [0, 10, 50])); // [0, 30, 50, 70] -
+console.log(throttle(20, false, true, 0, [0, 10, 20, 30])); // [0]
+console.log(throttle(20, true, false, 0, [0, 10, 20, 30])); // [50]
+console.log(throttle(20, false, true, 20, [0, 10, 20, 30])); // )[0, 20]
+console.log(throttle(20, false, true, 0, [0, 10, 40])); // [0, 40]
+console.log(throttle(20, true, false, 0, [0, 10, 40])); // [30, 60]
+console.log(throttle(20, true, true, 0, [0, 10, 50])); // [0, 30, 50, 70]
 console.log(throttle(20, true, true, 10, [0, 10, 50])); // [0, 10, 20, 30, 50, 60, 70]	
