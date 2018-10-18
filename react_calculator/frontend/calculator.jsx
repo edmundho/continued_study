@@ -15,6 +15,7 @@ class Calculator extends React.Component {
     this.plus = this.plus.bind(this);
     this.minus = this.minus.bind(this);
     this.times = this.times.bind(this);
+    this.divideBy = this.divideBy.bind(this);
     this.equals = this.equals.bind(this);
     this.clearCalc = this.clearCalc.bind(this);
   }
@@ -88,6 +89,25 @@ class Calculator extends React.Component {
       });
     }
   }
+
+  divideBy () {
+    if (this.state.operator.length > 0) {
+      const quotient = parseFloat(this.state.result) / parseFloat(this.state.display);
+
+      this.setState({
+        result: quotient.toString(),
+        display: quotient.toString(),
+        newNumber: true,
+        operator: "/"
+      });
+    } else {
+      this.setState({
+        result: this.state.display,
+        newNumber: true,
+        operator: "/"
+      });
+    }
+  }
   
   equals () {
     switch (this.state.operator) {
@@ -124,6 +144,15 @@ class Calculator extends React.Component {
         });
         break;
       case '/':
+        const quotient = parseFloat(this.state.result) / parseFloat(this.state.display);
+
+        this.setState({
+          result: quotient.toString(),
+          display: quotient.toString(),
+          newNumber: true,
+          equaled: true,
+          operator: '',
+        });
         break;
     }
   }
